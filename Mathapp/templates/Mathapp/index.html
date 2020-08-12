@@ -8,9 +8,13 @@
 
         All the questions:
         Answers are {{a}},{{b}}
+        Rank is {{rank}}
+        Eigen values is {{eigen1}},{{eigen2}}
     </div>
         <div>
-            <a href="{% url 'Math:calc'%}">Click here</a>
+            <a href="{% url 'Math:eqn_sol'%}">Click here</a>
+            <a href="{% url 'Math:rank'%}">Rank</a>
+            <a href="{% url 'Math:eigen'%}">Eigen</a>
         </div>
     </body>
 </html>

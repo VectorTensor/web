@@ -8,6 +8,17 @@ class linear_ALG:
     def solve(self):
        return np.linalg.solve(self.a,self.b)
 
+class mat:
+    def __init__(self, a):
+        self.a=a
+
+    def Rank(self):
+        return np.linalg.matrix_rank(self.a)
+
+    def eign(self):
+        return np.linalg.eigvals(self.a)    
+
+    
 
 
     
