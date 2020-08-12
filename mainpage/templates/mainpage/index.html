@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is the main page </title>
+        <style>
+            body{
+                background-color:lightblue ;
+                font-family: fantasy;
+            }
+            h1{
+                color:#41B3A3;
+            }
+            #Upload{
+                background-color: #5CDB95;
+                height: 200px;
+                width: inherit;
+                margin: 5px;
+                padding-top: 5px;
+                padding-left: 10px;
+                border-radius: 6%;
+               
+            }
+            #posts{
+                background-color: whitesmoke;
+                height: 500px;
+                padding:10px;
+                margin: 10px;
+                border-radius: 5%;
+            }
+                    </style>
+    </head>
+    <body>
+        <h1>
+            Welcome to the main page
+        </h1>
+        <div id="Upload"> 
+            <h2>
+                Upload a question 
+               
+            </h2>
+        </div>
+        <div id="posts">
+           <a href="{%url 'Math:index'%}">click here</a>
+        </div>
+    </body>
+</html>
