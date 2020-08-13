@@ -17,11 +17,18 @@ class Upload extends React.Component{
     }
 
 }
+
+
+
+
+
+
+
 class App extends React.Component{
     render(){
         return(
             <Upload/>
-
+            
         );
     }
 }
