@@ -2,19 +2,56 @@
 <html>
     <head>
         <title>This is the calc page</title>
-
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            .coef{
+                margin:20px;
+               
+                display: inline-block;
+            }
+            #box{
+                width:10px;
+            }
+           
+        </style>
+           
     </head>
     <body><div>
 
         All the questions:
-        Answers are {{a}},{{b}}
+        
         Rank is {{rank}}
         Eigen values is {{eigen1}},{{eigen2}}
     </div>
         <div>
-            <a href="{% url 'Math:eqn_sol'%}">Click here</a>
-            <a href="{% url 'Math:rank'%}">Rank</a>
-            <a href="{% url 'Math:eigen'%}">Eigen</a>
+          
+
         </div>
+       
+            <form action="{% url 'Mathapp:sub'%}" method="POST">
+                {%csrf_token%}
+                <div id="eqn">
+
+                </div>
+               
+                </form>
+                Answers are {{a}},{{b}},{{c}}
+
+
+        <form>
+            <div id="rank">
+            
+            </div>
+        </form>        
+      
+        
+        {% load static %}
+        <script src="{% static 'Mathapp/calc.js' %}" type="text/babel"></script>
+        
+        
+
+
     </body>
 </html>
