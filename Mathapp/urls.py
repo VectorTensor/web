@@ -6,7 +6,7 @@ app_name="Mathapp"
 urlpatterns=[
     path('',views.index,name="index"),
   
-     path('calc_2',views.calc_2,name="rank"),
-     path('calc_3',views.calc_3,name="eigen"),
-     path('sub',views.sub,name="sub")
+    path('rank',views.rank,name="rank"),
+    path('eigen',views.eigen,name="eigen"),
+    path('sub',views.sub,name="sub")
 ]

@@ -6,7 +6,7 @@
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <style>
-            .coef{
+            #coef{
                 margin:20px;
                
                 display: inline-block;
@@ -29,7 +29,9 @@
           
 
         </div>
-       
+            <h2>
+                Equation Solver
+            </h2>
             <form action="{% url 'Mathapp:sub'%}" method="POST">
                 {%csrf_token%}
                 <div id="eqn">
@@ -39,12 +41,24 @@
                 </form>
                 Answers are {{a}},{{b}},{{c}}
 
+        <h2>
+            Rank
+        </h2>
+        <form action="{%url 'Mathapp:rank'%}" method="POST">
+            {%csrf_token%}
 
-        <form>
             <div id="rank">
             
             </div>
-        </form>        
+        </form> 
+        Rank is {{rank}}    
+        <form action="{%url 'Mathapp:eigen'%}" method="POST">
+            {%csrf_token%}
+            <div id="eigen">
+
+            </div>
+        </form> 
+        Eigen value is {{eigen1}},{{eigen2}},{{eigen3}} 
       
         
         {% load static %}
