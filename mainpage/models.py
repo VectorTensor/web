@@ -8,7 +8,7 @@ from django.db import models
 class Answer(models.Model):
     About= models.CharField(max_length=200)
     Image=models.ImageField(upload_to='Answer',blank=True,null=True)
-    thumbsup=models.IntegerField(max_length=64)
+    thumbsup=models.IntegerField()
 
 
 

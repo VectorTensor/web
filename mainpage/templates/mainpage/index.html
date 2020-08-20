@@ -16,6 +16,28 @@
 
        </div>
        <div>
+           <h2>Question</h2>
+           <form enctype="multipart/form-data" action="{% url 'QA:main'%}" method="POST" > 
+               {%csrf_token%}
+              <input type="text" name="Q_about">
+
+            {{form1}}
+            
+           
+           <h2>
+               Answer
+           </h2>
+           <input type="text" name="A_about">
+          {{form2}}
+          
+           <br>
+           
+           <input type="submit">
+
+        </form>
+       </div>
+       <div>
+           <a href="{%url 'Mathapp:index'%}">calculator</a>
            {%for post in posts%}
            {{post.About}}
            <br>
