@@ -4,18 +4,48 @@
         <title>
             This is the detail page
         </title>
+        {% load static %}
+         
+        <link rel="stylesheet" href="{% static 'mainpage/style.css' %}">
+        <script src="{% static 'mainpage/functions.js'%}"  >
 
+        </script>
     </head>
     <body>
         <div>
-            {{post.About}}
-            <img src={{post.Image.url}}>
+            {{post.About}}<br>
+
+            <img class="postImage" src={{post.Image.url}}>
             <h2>
                 Answer:
             </h2>
             {{post.Primary_answer.About}}
             <br>
-            <img src={{post.Primary_answer.Image.url}}>
+            <img class="postImage" src={{post.Primary_answer.Image.url}}>
+            <h2>
+                Comments
+            </h2>
+
+            <br>
+            <button id="add_question">Add comment</button>
+            <div id="Adder">
+            <h2>
+               
+                Add Comment 
+            </h2>
+            <br>
+
+            <form enctype="multipart/form-data" action="{% url 'QA:posts' post.id%}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="C_About">
+                {{form}}
+                <input type="submit">
+            </form>
+        </div>
+            {%for comment in Comments%}
+            {{comment.About}}
+            <img class="postImage" src={{comment.Image.url}}>
+            {% endfor %}
         </div>
         
        

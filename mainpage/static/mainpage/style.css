@@ -1,0 +1,16 @@
+.postImage{
+    height: 300px;
+    width:200px;
+}
+.form_gang{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 600px;
+}
+body{
+    background-image:url("color.png");
+    background-size: cover;
+
+
+}

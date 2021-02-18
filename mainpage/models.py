@@ -21,4 +21,4 @@ class Question(models.Model):
 class comment(models.Model):
     About = models.CharField(max_length=200)
     Image= models.ImageField(upload_to='comment',blank=True,null=True)
-    Question= models.ForeignKey(Question,on_delete=models.CASCADE)
+    Question= models.ForeignKey(Question,on_delete=models.CASCADE,related_name="Ques")

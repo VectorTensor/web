@@ -12,6 +12,9 @@ class NewAnswerForm(forms.Form):
   
     A_photo=forms.ImageField(label="Image")
 
+class NewCommentForm(forms.Form):
+    C_photo=forms.ImageField(label="Image")
+
 # Create your views here.
 def index(request):
     if request.method=="POST":
@@ -28,9 +31,9 @@ def index(request):
         
         Q_about=request.POST["Q_about"]
         A_about=request.POST["A_about"]
-        m=Answer.objects.create(About=Q_about,Image=A_photo,thumbsup=0)
+        m=Answer.objects.create(About=A_about,Image=A_photo,thumbsup=0)
         m.save()
-        n=Question.objects.create(About=A_about,Image=Q_photo,Primary_answer=m)
+        n=Question.objects.create(About=Q_about,Image=Q_photo,Primary_answer=m)
         n.save()
 
     posts= Question.objects.all()
@@ -46,11 +49,22 @@ def index(request):
     })
 
 def post(request,post_id):
+    if request.method=="POST":
+        form=NewCommentForm(request.POST,request.FILES)
+        if form.is_valid():
+            C_photo=form.cleaned_data["C_photo"]
+
+        C_about= request.POST["C_About"]   
+        m=comment.objects.create(About=C_about,Image=C_photo,Question=Question.objects.get(pk=post_id))
+        m.save()
+
     posts= Question.objects.get(pk=post_id)
+    Comments=posts.Ques.all()
    
     return render(request,'mainpage/detail.html',{
-        "post":posts
-        
+        "post":posts,
+        "Comments":Comments,
+        "form":NewCommentForm
 
         
     })

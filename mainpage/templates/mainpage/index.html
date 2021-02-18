@@ -5,21 +5,29 @@
         <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-          <script>
-             
+        {% load static %}
+         
+    <link rel="stylesheet" href="{% static 'mainpage/style.css' %}">
+         <script src="{% static 'mainpage/functions.js'%}"  >
 
-          </script>
+         </script>
 
     </head>
     <body>
                <div id="app">
 
        </div>
-       <div>
+       <button id="add_question">
+        Add Question
+    </button>
+       <div id="Adder">
+
+        
            <h2>Question</h2>
-           <form enctype="multipart/form-data" action="{% url 'QA:main'%}" method="POST" > 
+         
+           <form enctype="multipart/form-data" action="{% url 'QA:main' %}" method="POST" > 
                {%csrf_token%}
-              <input type="text" name="Q_about">
+              <input class="form_gang" type="text" name="Q_about"><br>
 
             {{form1}}
             
@@ -27,12 +35,13 @@
            <h2>
                Answer
            </h2>
-           <input type="text" name="A_about">
+           <input class="form_gang" type="text" name="A_about"><br>
+           
           {{form2}}
           
            <br>
            
-           <input type="submit">
+           <input  type="submit">
 
         </form>
        </div>
@@ -41,8 +50,9 @@
            {%for post in posts%}
            {{post.About}}
            <br>
-           <img src={{post.Image.url}}>
-           <a href="{% url 'QA:posts' post.id %}">detail</a>
+           <img class="postImage" src={{post.Image.url}} >
+           <a href="{% url 'QA:posts' post.id %}">detail</a><br>
+           
 
 
            {% endfor %}
